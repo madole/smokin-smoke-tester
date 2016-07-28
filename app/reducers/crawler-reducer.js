@@ -1,6 +1,6 @@
 import {
   CLEAR_ITEMS,
-  CRAWL_STARTED,
+  CRAWL_START,
   CRAWL_RESULT,
   CRAWL_COMPLETE
 } from '../actions/crawler-actions';
@@ -15,7 +15,7 @@ export default (state = { items: [] }, action) => {
         items
       };
     }
-    case CRAWL_STARTED: {
+    case CRAWL_START: {
       return {
         ...state,
         status: 'crawling'

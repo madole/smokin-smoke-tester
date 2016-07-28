@@ -16,8 +16,8 @@ export default () => next => action => {
     return finalAction;
   }
 
-  const [startedType, resultType, completeType] = types;
-  next(actionWith({ type: startedType, url, depthLimit }));
+  const [startType, resultType, completeType] = types;
+  next(actionWith({ type: startType, url, depthLimit }));
 
   const protocolRegex = /^http.*:\/\//;
   if (!protocolRegex.test(url)) {
