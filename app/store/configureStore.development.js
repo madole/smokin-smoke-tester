@@ -6,6 +6,7 @@ import { hashHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
+import crawler from '../middleware/crawler';
 
 const logger = createLogger({
   level: 'info',
@@ -15,7 +16,7 @@ const logger = createLogger({
 const router = routerMiddleware(hashHistory);
 
 const enhancer = compose(
-  applyMiddleware(thunk, router, logger),
+  applyMiddleware(thunk, router, logger, crawler),
   DevTools.instrument(),
   persistState(
     window.location.href.match(
