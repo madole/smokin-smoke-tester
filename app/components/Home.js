@@ -45,9 +45,11 @@ export default class Home extends Component {
             />
           </div>
           <div className={styles.button}>
-            <Button onClick={this.startCrawling.bind(this)}>
-              <Link to="/results">Smoke it!</Link>
-            </Button>
+            <Link to="/results">
+              <Button onClick={this.startCrawling.bind(this)}>
+                Smoke it!
+              </Button>
+            </Link>
           </div>
         </Container>
       </div>

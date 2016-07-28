@@ -3,6 +3,8 @@ export const START_CRAWLING = 'START_CRAWLING';
 export const UPDATE_STATUS = 'UPDATE_STATUS';
 export const CRAWLING = 'CRAWLING';
 export const COMPLETED = 'COMPLETED';
+export const CLEAR_ITEMS = 'CLEAR_ITEMS';
+
 import crawler from '../api/crawler';
 
 export function itemFetched(item) {
@@ -29,5 +31,11 @@ export function startCrawling({ url, depthLimit }) {
     }
     crawler({ dispatchItemFetched, dispatchUpdateStatusComplete })({ url, depthLimit });
     return dispatch(updateStatus(CRAWLING));
+  };
+}
+
+export function clearItems() {
+  return {
+    type: CLEAR_ITEMS
   };
 }
