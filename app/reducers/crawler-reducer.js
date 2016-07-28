@@ -3,7 +3,7 @@ import {
   UPDATE_STATUS
 } from '../actions/crawler-actions';
 
-export default (state = {}, action) => {
+export default (state = { items: [] }, action) => {
   switch (action.type) {
     case ITEM_FETCHED: {
       const items = state.items || [];
