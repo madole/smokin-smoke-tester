@@ -4,6 +4,7 @@ export const UPDATE_STATUS = 'UPDATE_STATUS';
 export const CRAWLING = 'CRAWLING';
 export const COMPLETED = 'COMPLETED';
 export const CLEAR_ITEMS = 'CLEAR_ITEMS';
+export const SET_META_DATA = 'SET_META_DATA';
 
 import crawler from '../api/crawler';
 
@@ -37,5 +38,14 @@ export function startCrawling({ url, depthLimit }) {
 export function clearItems() {
   return {
     type: CLEAR_ITEMS
+  };
+}
+
+export function setMetaData({ url, depthLimit, timeStamp }) {
+  return {
+    type: SET_META_DATA,
+    depthLimit,
+    timeStamp,
+    url
   };
 }

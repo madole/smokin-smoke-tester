@@ -5,10 +5,17 @@ import styles from './Home.scss';
 
 export default class Home extends Component {
   static propTypes = {
-    startCrawling: PropTypes.func.isRequired
+    startCrawling: PropTypes.func.isRequired,
+    setMetaData: PropTypes.func.isRequired
   }
 
   startCrawling() {
+    this.props.setMetaData({
+      url: this._url.value,
+      depthLimit: this._depthLimit.value || 2,
+      timeStamp: Date.now()
+    });
+
     this.props.startCrawling({
       url: this._url.value,
       depthLimit: this._depthLimit.value
