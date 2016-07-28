@@ -12,8 +12,12 @@ import './global.scss';
 // support tap events
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
-
-const store = configureStore();
+const initialState = {
+  crawler: {
+    items: []
+  }
+};
+const store = configureStore(initialState);
 const history = syncHistoryWithStore(hashHistory, store);
 
 

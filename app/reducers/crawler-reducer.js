@@ -1,6 +1,7 @@
 import {
   ITEM_FETCHED,
-  UPDATE_STATUS
+  UPDATE_STATUS,
+  CLEAR_ITEMS
 } from '../actions/crawler-actions';
 
 export default (state = { items: [] }, action) => {
@@ -17,6 +18,12 @@ export default (state = { items: [] }, action) => {
       return {
         ...state,
         status: action.status
+      };
+    }
+    case CLEAR_ITEMS: {
+      return {
+        ...state,
+        items: []
       };
     }
     default:
