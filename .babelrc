@@ -1,0 +1,25 @@
+{
+	"presets": ["es2015", "stage-0", "react"],
+	"plugins": [
+		"add-module-exports",
+		"transform-flow-strip-types", ["transform-async-to-module-method", {
+			"module": "bluebird",
+			"method": "coroutine"
+		}]
+	],
+	"env": {
+		"development": {
+			"presets": ["react-hmre"]
+		},
+		"test": {
+			"plugins": [
+				[
+					"css-modules-transform", {
+						"extensions": [".css", ".scss"],
+					 	"generateScopedName": "[name]__[local]"
+					}
+				]
+			]
+		}
+	}
+}
