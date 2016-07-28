@@ -5,8 +5,9 @@ export default ({ dispatchItemFetched, dispatchUpdateStatusComplete }) => ({ url
   const crawler = Crawler.crawl(url);
 
   crawler.maxDepth = depthLimit !== undefined ? depthLimit : DEFAULT_DEPTH_LIMIT;
-  // crawler.interval = 500;
+  crawler.interval = 500;
   crawler.on('crawlstart', () => console.info('crawlin'));
+
   crawler.on('fetchcomplete', queueItem => {
     dispatchItemFetched(queueItem);
   });

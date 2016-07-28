@@ -9,7 +9,10 @@ export default class Home extends Component {
   }
 
   startCrawling() {
-    this.props.startCrawling();
+    this.props.startCrawling({
+      url: this._url.value,
+      depthLimit: this._depthLimit.value
+    });
   }
 
   render() {
@@ -21,6 +24,7 @@ export default class Home extends Component {
           </div>
           <div className={styles.inputGroup}>
             <Input
+              baseRef={(input) => { this._url = input; }}
               className={styles.url}
               label="URL"
               name="url"
@@ -30,10 +34,11 @@ export default class Home extends Component {
               hideLabel
             />
             <Input
+              baseRef = {(input) => { this._depthLimit = input; }}
               className={styles.depthLimit}
               label="Depth Limit"
               name="depthLimit"
-              value={2}
+              placeholder={2}
               type="number"
               rounded
               hideLabel
