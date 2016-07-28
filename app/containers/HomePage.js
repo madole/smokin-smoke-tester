@@ -3,10 +3,8 @@ import Home from '../components/Home';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-function mapStateToProps(state) {
-  return {
-    dataset: state.datasetReducer.dataset
-  };
+function mapStateToProps() {
+  return {};
 }
 
 function mapDispatchToProps(dispatch) {
