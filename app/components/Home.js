@@ -38,7 +38,7 @@ export default class Home extends Component {
               className={styles.depthLimit}
               label="Depth Limit"
               name="depthLimit"
-              placeholder={2}
+              defaultValue={2}
               type="number"
               rounded
               hideLabel

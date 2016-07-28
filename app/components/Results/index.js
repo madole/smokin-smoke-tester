@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import { Heading } from 'rebass';
+import { Container, Heading } from 'rebass';
 import BackButton from '../BackButton';
 import Result from '../Result';
+import styles from './styles.scss';
 
 export default class Results extends Component {
   static propTypes = {
@@ -16,18 +17,18 @@ export default class Results extends Component {
 
   render() {
     const { crawler } = this.props;
-    const items = crawler.items;
+    const items = crawler.items.slice(1);
     const status = crawler.status;
     return (
-      <div>
-        <BackButton onClick={() => this.props.clearItems()} />
+      <Container mt={3}>
+        <BackButton mb={2} onClick={() => this.props.clearItems()} />
         <Heading level={1}>
           Results ({status})
         </Heading>
-        <ul>
+        <ul className={styles.resultList}>
           {items.map((item, i) => <Result key={i} {...item} />)}
         </ul>
-      </div>
+      </Container>
     );
   }
 }
