@@ -1,3 +1,5 @@
+import { BEGIN_CRAWLING } from '../middleware/crawler';
+
 export const ITEM_FETCHED = 'ITEM_FETCHED';
 export const START_CRAWLING = 'START_CRAWLING';
 export const UPDATE_STATUS = 'UPDATE_STATUS';
@@ -31,6 +33,20 @@ export function startCrawling({ url, depthLimit }) {
     }
     crawler({ dispatchItemFetched, dispatchUpdateStatusComplete })({ url, depthLimit });
     return dispatch(updateStatus(CRAWLING));
+  };
+}
+
+export const CRAWL_STARTED = 'CRAWL_STARTED';
+export const CRAWL_RESULT = 'CRAWL_RESULT';
+export const CRAWL_COMPLETE = 'CRAWL_COMPLETE';
+
+export function beginCrawling({ url, depthLimit }) {
+  return {
+    [BEGIN_CRAWLING]: {
+      types: [CRAWL_STARTED, CRAWL_RESULT, CRAWL_COMPLETE],
+      url,
+      depthLimit
+    }
   };
 }
 
