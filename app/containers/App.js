@@ -5,19 +5,26 @@ export default class App extends Component {
     children: PropTypes.element.isRequired
   };
   static childContextTypes = {
-    componentStyle: React.PropTypes.object
+    rebass: React.PropTypes.object
   };
 
   getChildContext() {
     return {
-      componentStyle: {
-        primaryColor: '#FFC107',
-        primaryFontColor: 'rgba(0, 0, 0, 0.7)',
-        secondaryColor: '#009688',
-        secondaryFontColor: 'rgba(255, 255, 255, 0.9)',
-        errorColor: '#C00',
-        successColor: '#090',
-        typographyColor: '#212121'
+      rebass: {
+        borderColor: 'transparent',
+        borderRadius: 2,
+        colors: {
+          primary: '#F45C54'
+        },
+        fontSizes: [
+          54,
+          40,
+          32,
+          24,
+          20,
+          16,
+          14
+        ]
       }
     };
   }
