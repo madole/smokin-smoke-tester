@@ -5,11 +5,11 @@ import styles from './Home.scss';
 
 export default class Home extends Component {
   static propTypes = {
-    startCrawling: PropTypes.func.isRequired
+    beginCrawling: PropTypes.func.isRequired
   }
 
-  startCrawling() {
-    this.props.startCrawling({
+  beginCrawling() {
+    this.props.beginCrawling({
       url: this._url.value,
       depthLimit: this._depthLimit.value
     });
@@ -46,7 +46,7 @@ export default class Home extends Component {
           </div>
           <div className={styles.button}>
             <Link to="/results">
-              <Button onClick={this.startCrawling.bind(this)}>
+              <Button onClick={this.beginCrawling.bind(this)}>
                 Smoke it!
               </Button>
             </Link>
