@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 import { Button, Container, Heading, Input } from 'rebass';
 import styles from './Home.scss';
 
@@ -45,7 +45,9 @@ export default class Home extends Component {
             />
           </div>
           <div className={styles.button}>
-            <Button onClick={this.startCrawling.bind(this)}>Smoke it!</Button>
+            <Button onClick={this.startCrawling.bind(this)}>
+              <Link to="/results">Smoke it!</Link>
+            </Button>
           </div>
         </Container>
       </div>
