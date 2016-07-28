@@ -5,11 +5,13 @@ import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes';
 import configureStore from './store/configureStore';
-import './app.global.css';
+
+// import 'material-components/lib/index.css';
+import './global.scss';
+
 // support tap events
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
-import 'material-components/lib/index.css';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store);
