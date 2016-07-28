@@ -19,7 +19,7 @@ export function updateStatus(status) {
   };
 }
 
-export function startCrawling() {
+export function startCrawling({ url, depthLimit }) {
   return dispatch => {
     function dispatchItemFetched(item) {
       dispatch(itemFetched(item));
@@ -27,7 +27,7 @@ export function startCrawling() {
     function dispatchUpdateStatusComplete() {
       dispatch(updateStatus(COMPLETED));
     }
-    crawler({ dispatchItemFetched, dispatchUpdateStatusComplete })({ url: 'http://kitchen-website-uat.ap-southeast-2.elasticbeanstalk.com/' });
+    crawler({ dispatchItemFetched, dispatchUpdateStatusComplete })({ url, depthLimit });
     return dispatch(updateStatus(CRAWLING));
   };
 }
