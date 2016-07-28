@@ -133,6 +133,7 @@
     "rebass": "^0.3.0",
     "redux": "^3.4.0",
     "redux-thunk": "^2.0.1",
+    "simplecrawler": "^0.7.0",
     "source-map-support": "^0.4.0"
   },
   "devEngines": {

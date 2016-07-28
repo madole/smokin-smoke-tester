@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { Button, Block, Container, Heading, Input, Tooltip } from 'rebass';
+import React, { Component, PropTypes } from 'react';
+// import { Link } from 'react-router';
+import { Button, Container, Heading, Input } from 'rebass';
 import styles from './Home.scss';
 
 export default class Home extends Component {
+  static propTypes = {
+    startCrawling: PropTypes.func.isRequired
+  }
+
+  startCrawling() {
+    this.props.startCrawling();
+  }
 
   render() {
     return (
@@ -33,7 +40,7 @@ export default class Home extends Component {
             />
           </div>
           <div className={styles.button}>
-            <Button><Link to="/results">Smoke It!</Link></Button>
+            <Button onClick={this.startCrawling.bind(this)}>Smoke it!</Button>
           </div>
         </Container>
       </div>
