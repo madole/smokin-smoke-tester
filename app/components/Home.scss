@@ -1,0 +1,62 @@
+@import 'variables';
+
+.root {
+  margin: 100px 0;
+  text-align: center;
+}
+
+.header {
+  margin: 0 0 25px;
+}
+
+.inputGroup {
+  & > div {
+    display: inline-block;
+
+    &:nth-child(1) {
+      width: 85%;
+    }
+
+    &:nth-child(2) {
+      width: 13%;
+      float: right;
+    }
+  }
+}
+
+$input-size: 1.75rem;
+$input-height: $input-size * 2;
+.input {
+  color: rgba(0, 0, 0, 0.50) !important;
+  font-size: $input-size !important;
+  height: $input-height !important;
+  line-height: $input-height !important;
+  background: rgba(255, 255, 255, 0.75) !important;
+
+  text-align: center;
+}
+
+.url {
+  composes: input;
+}
+
+.depthLimit {
+  composes: input;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+}
+
+$button-size: 1.2rem;
+$button-padding: 15px 20px;
+.button {
+  button {
+    font-size: $button-size !important;
+    padding: $button-padding !important;
+    font-weight: 100 !important;
+  }
+}
