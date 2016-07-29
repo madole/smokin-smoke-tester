@@ -1,6 +1,8 @@
-const WARNING = 'warning';
-const SUCCESS = 'success';
-const FAILURE = 'failure';
+import {
+  WARNING,
+  SUCCESS,
+  FAILURE
+} from '../actions/filter-actions';
 
 export default (statusCode) => {
   const status = statusCode.toString();
