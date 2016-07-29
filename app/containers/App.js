@@ -14,7 +14,8 @@ export default class App extends Component {
         borderColor: 'transparent',
         borderRadius: 2,
         colors: {
-          primary: '#F45C54'
+          primary: '#F45C54',
+          success: '#00BB77'
         },
         fontSizes: [
           54,
