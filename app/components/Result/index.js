@@ -10,12 +10,24 @@ export default class Result extends Component {
     depth: PropTypes.number.isRequired,
     responseTime: PropTypes.number.isRequired,
     statusCode: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
+    contentType: PropTypes.string.isRequired
   }
 
   render() {
-    const { url, path, depth, responseTime, statusCode, time, type } = this.props;
+    const {
+      url,
+      path,
+      depth,
+      responseTime,
+      statusCode,
+      time,
+      type,
+      status,
+      contentType
+    } = this.props;
     return (
       <li
         className={styles.root}
