@@ -8,11 +8,14 @@ export default class Result extends Component {
     url: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
     depth: PropTypes.number.isRequired,
-    stateData: PropTypes.object.isRequired
+    responseTime: PropTypes.number.isRequired,
+    statusCode: PropTypes.number.isRequired,
+    time: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
   }
 
   render() {
-    const { url, path, depth, stateData } = this.props;
+    const { url, path, depth, responseTime, statusCode, time, type } = this.props;
     return (
       <li
         className={styles.root}
@@ -24,10 +27,10 @@ export default class Result extends Component {
 
         <ul className={styles.details}>
           <li><span>Depth</span>{depth}</li>
-          <li><span>Response Time</span>{stateData.requestTime}</li>
-          <li><span>Status Code</span>{stateData.code}</li>
-          <li><span>Time</span>{stateData.headers.date}</li>
-          <li><span>Type</span>{stateData.contentType}</li>
+          <li><span>Response Time</span>{responseTime}</li>
+          <li><span>Status Code</span>{statusCode}</li>
+          <li><span>Time</span>{time}</li>
+          <li><span>Type</span>{type}</li>
         </ul>
       </li>
     );
