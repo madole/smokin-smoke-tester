@@ -2,9 +2,15 @@ import Crawler from 'simplecrawler';
 import $ from 'jquery';
 
 export const BEGIN_CRAWLING = Symbol('Begin Crawling');
+export const STOP_CRAWLING = Symbol('Stop Crawling');
 const DEFAULT_DEPTH_LIMIT = 2;
 
+let crawler;
+
 export default () => next => action => {
+  const stopCrawling = action[STOP_CRAWLING];
+  if (stopCrawling) return crawler && crawler.stop();
+
   const beginCrawling = action[BEGIN_CRAWLING];
   if (!beginCrawling) return next(action);
 
@@ -29,7 +35,7 @@ export default () => next => action => {
     depthLimit = DEFAULT_DEPTH_LIMIT;
   }
 
-  const crawler = Crawler.crawl(url);
+  crawler = Crawler.crawl(url);
 
   crawler.maxDepth = depthLimit;
   crawler.interval = 500;
@@ -57,6 +63,7 @@ export default () => next => action => {
   });
 
   crawler.on('complete', () => {
+    crawler = null;
     next(actionWith({ type: completeType }));
   });
 
