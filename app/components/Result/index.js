@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Text } from 'rebass';
+import { Flex, Box } from 'reflexbox';
 import styles from './styles.scss';
 
 export default class Result extends Component {
@@ -28,22 +29,28 @@ export default class Result extends Component {
       status,
       contentType
     } = this.props;
-    return (
-      <li
-        className={styles.root}
-        style={{
-          marginLeft: 40 * (depth - 2)
-        }}
-      >
-        <Text bold><a href={url} target="_blank">{path}</a></Text>
 
-        <ul className={styles.details}>
-          <li><span>Depth</span>{depth}</li>
-          <li><span>Response Time</span>{responseTime}</li>
-          <li><span>Status Code</span>{statusCode}</li>
-          <li><span>Time</span>{time}</li>
-          <li><span>Type</span>{type}</li>
-        </ul>
+    return (
+      <li className={styles.root}>
+        <Flex>
+          <Box col={1} className={styles[status]} />
+          <Box col={11} className={styles.details}>
+            <Text bold style={{ display: 'inline' }}>
+              <a href={url} target="_blank">{path}</a>
+              <div className={styles.statusCode}>
+                <span>{statusCode}</span>
+              </div>
+              <div className={styles.statusCode}>
+                <span>{type}</span>
+              </div>
+            </Text>
+
+            <ul className={styles.extraDetails}>
+              <li><span>Response Time</span>{responseTime}ms</li>
+              <li><span>Depth</span>{depth}</li>
+            </ul>
+          </Box>
+        </Flex>
       </li>
     );
   }

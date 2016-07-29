@@ -7,7 +7,7 @@ import Icon from 'react-geomicons';
 export default function BackButton(props) {
   return (
     <Link to="/">
-      <Button {...props} title="Like">
+      <Button {...props} title="Like" backgroundColor="#BBB">
           <Icon
             fill="currentColor"
             height="1em"

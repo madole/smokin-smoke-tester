@@ -21,7 +21,9 @@ export default (state = { items: [] }, action) => {
     case CRAWL_START: {
       return {
         ...state,
-        status: 'crawling'
+        status: 'crawling',
+        url: action.url,
+        depthLimit: action.depthLimit
       };
     }
     case CRAWL_COMPLETE: {

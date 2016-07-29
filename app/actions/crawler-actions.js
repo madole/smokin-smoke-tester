@@ -4,7 +4,6 @@ export const START_CRAWLING = 'START_CRAWLING';
 export const UPDATE_STATUS = 'UPDATE_STATUS';
 export const CRAWLING = 'CRAWLING';
 export const COMPLETED = 'COMPLETED';
-export const CLEAR_ITEMS = 'CLEAR_ITEMS';
 export const SET_META_DATA = 'SET_META_DATA';
 
 export function updateStatus(status) {
@@ -17,6 +16,7 @@ export function updateStatus(status) {
 export const CRAWL_START = 'CRAWL_START';
 export const CRAWL_RESULT = 'CRAWL_RESULT';
 export const CRAWL_COMPLETE = 'CRAWL_COMPLETE';
+export const CLEAR_ITEMS = 'CLEAR_ITEMS';
 
 export function beginCrawling({ url, depthLimit, filter }) {
   return {
