@@ -59,7 +59,7 @@ export default class Home extends Component {
             <Radio
               checked={this.state.radio === 'html'}
               circle
-              label="Just html"
+              label="Just HTML"
               name="radio_1"
               value="html"
               onChange={this.handleRadioChange.bind(this)}
@@ -67,7 +67,7 @@ export default class Home extends Component {
             <Radio
               circle
               checked={this.state.radio === 'everything'}
-              label="Everything under the sun"
+              label="Everything Under the Sun"
               name="radio_1"
               value="everything"
               onChange={this.handleRadioChange.bind(this)}
