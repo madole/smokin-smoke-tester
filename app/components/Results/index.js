@@ -57,18 +57,18 @@ export default class Results extends Component {
 
         <Flex justify="flex-start" className={styles.flex}>
           <div className={styles.filterButton}>
-            <Button big onClick={() => this.props.failureFilter()}> Just Failures </Button>
+            <Button big color="white" backgroundColor="#2D3137" onClick={() => this.props.allFilter()}> All </Button>
           </div>
           <div className={styles.filterButton}>
-            <Button big onClick={() => this.props.warningFilter()}> Just Warnings </Button>
+            <Button big color="white" backgroundColor="#2D3137" onClick={() => this.props.successFilter()}>Successes</Button>
           </div>
           <div className={styles.filterButton}>
-            <Button big onClick={() => this.props.successFilter()}> Just Successes </Button>
+            <Button big color="white" backgroundColor="#2D3137" onClick={() => this.props.warningFilter()}>Warnings</Button>
           </div>
           <div className={styles.filterButton}>
-            <Button big onClick={() => this.props.allFilter()}> All </Button>
+            <Button big color="white" backgroundColor="#2D3137" onClick={() => this.props.failureFilter()}>Failures</Button>
           </div>
-          <Box align="center" className={styles.count}>({filteredItems.length})</Box>
+          <Box align="center" col={12} ml={1} className={styles.count}>{filteredItems.length}</Box>
         </Flex>
 
         <ul className={styles.resultList}>
