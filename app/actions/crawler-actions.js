@@ -1,4 +1,4 @@
-import { BEGIN_CRAWLING } from '../middleware/crawler';
+import { BEGIN_CRAWLING, STOP_CRAWLING } from '../middleware/crawler';
 
 export const START_CRAWLING = 'START_CRAWLING';
 export const UPDATE_STATUS = 'UPDATE_STATUS';
@@ -25,6 +25,14 @@ export function beginCrawling({ url, depthLimit, filter }) {
       url,
       depthLimit,
       filter
+    }
+  };
+}
+
+export function stopCrawling() {
+  return {
+    [STOP_CRAWLING]: {
+      type: STOP_CRAWLING
     }
   };
 }
