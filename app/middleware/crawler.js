@@ -50,7 +50,7 @@ export default () => next => action => {
 
       const links = [];
       allLinks
-      .filter((i, link) => (link.startsWith('/')))
+      .filter((i, link) => (link.startsWith('/') || link.startsWith(url)))
       .each((i, link) => links.push(link));
       return links;
     };
