@@ -60,13 +60,13 @@ export default class Results extends Component {
             <Button big color="white" backgroundColor="#2D3137" onClick={() => this.props.allFilter()}> All </Button>
           </div>
           <div className={styles.filterButton}>
-            <Button big color="white" backgroundColor="#2D3137" onClick={() => this.props.successFilter()}>Just Successes</Button>
+            <Button big color="white" backgroundColor="success" onClick={() => this.props.successFilter()}>Just Successes</Button>
           </div>
           <div className={styles.filterButton}>
-            <Button big color="white" backgroundColor="#2D3137" onClick={() => this.props.warningFilter()}>Just Warnings</Button>
+            <Button big color="white" backgroundColor="warning" onClick={() => this.props.warningFilter()}>Just Warnings</Button>
           </div>
           <div className={styles.filterButton}>
-            <Button big color="white" backgroundColor="#2D3137" onClick={() => this.props.failureFilter()}>Just Failures</Button>
+            <Button big color="white" backgroundColor="failure" onClick={() => this.props.failureFilter()}>Just Failures</Button>
           </div>
           <Box align="center" ml={1} className={styles.count}>{filteredItems.length}</Box>
         </Flex>
