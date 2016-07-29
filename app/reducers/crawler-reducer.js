@@ -1,7 +1,8 @@
 import {
-  ITEM_FETCHED,
-  UPDATE_STATUS,
   CLEAR_ITEMS,
+  CRAWL_START,
+  CRAWL_RESULT,
+  CRAWL_COMPLETE,
   SET_META_DATA
 } from '../actions/crawler-actions';
 
@@ -9,7 +10,7 @@ import modelItem from '../utils/itemModel';
 
 export default (state = { items: [] }, action) => {
   switch (action.type) {
-    case ITEM_FETCHED: {
+    case CRAWL_RESULT: {
       const items = state.items || [];
       items.push(modelItem(action.item));
       return {
@@ -17,10 +18,16 @@ export default (state = { items: [] }, action) => {
         items
       };
     }
-    case UPDATE_STATUS: {
+    case CRAWL_START: {
       return {
         ...state,
-        status: action.status
+        status: 'crawling'
+      };
+    }
+    case CRAWL_COMPLETE: {
+      return {
+        ...state,
+        status: 'complete'
       };
     }
     case CLEAR_ITEMS: {
