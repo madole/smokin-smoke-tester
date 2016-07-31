@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import { Container, Button, ButtonCircle } from 'rebass';
+import { Container, Button } from 'rebass';
 import { Flex, Box } from 'reflexbox';
 import BackButton from '../BackButton';
 import MainResult from '../MainResult';
 import Result from '../Result';
 import styles from './styles.scss';
+import FilterButtons from '../FilterButtons';
+import SortButtons from '../SortButtons';
 
 import { SUCCESS } from '../../actions/filter-actions';
 
@@ -17,7 +19,9 @@ export default class Results extends Component {
     failureFilter: PropTypes.func.isRequired,
     warningFilter: PropTypes.func.isRequired,
     successFilter: PropTypes.func.isRequired,
-    allFilter: PropTypes.func.isRequired
+    allFilter: PropTypes.func.isRequired,
+    sortResponseTimeDesc: PropTypes.func.isRequired,
+    sortResponseTimeAsc: PropTypes.func.isRequired
   }
 
   clearItems() {
@@ -50,27 +54,13 @@ export default class Results extends Component {
     const { filteredItems, crawler } = this.props;
     const mainResult = crawler.items[0];
     const allItems = crawler.items;
+
     return (
       <Container mt={3}>
         <BackButton mb={2} onClick={() => this.clearItems()} />
         {this.renderMainResult(mainResult, allItems)}
-
-        <Flex justify="flex-start" className={styles.flex}>
-          <div className={styles.filterButton}>
-            <Button big onClick={() => this.props.failureFilter()}> Just Failures </Button>
-          </div>
-          <div className={styles.filterButton}>
-            <Button big onClick={() => this.props.warningFilter()}> Just Warnings </Button>
-          </div>
-          <div className={styles.filterButton}>
-            <Button big onClick={() => this.props.successFilter()}> Just Successes </Button>
-          </div>
-          <div className={styles.filterButton}>
-            <Button big onClick={() => this.props.allFilter()}> All </Button>
-          </div>
-          <Box align="center" className={styles.count}>({filteredItems.length})</Box>
-        </Flex>
-
+        <FilterButtons filteredItemsLength={filteredItems.length} styles={styles} {...this.props} />
+        <SortButtons styles={styles} {...this.props} />
         <ul className={styles.resultList}>
           {filteredItems.map((result, i) => <Result key={i} {...result} />)}
         </ul>
