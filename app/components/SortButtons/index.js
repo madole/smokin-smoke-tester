@@ -10,14 +10,14 @@ export default function SortButtons(props) {
   } = props;
 
   return (
-    <Flex justify="flex-start" className={styles.flex}>
+    <Flex justify="flex-end" className={styles.flexSort}>
     <div className={styles.sortButton}>
       <Button
         big
         color="white"
         backgroundColor="#2D3137"
         onClick={() => sortResponseTimeAsc()}
-      >⬆︎</Button>
+      >Response Time ⬆︎</Button>
     </div>
     <div className={styles.sortButton}>
       <Button
@@ -25,7 +25,7 @@ export default function SortButtons(props) {
         color="white"
         backgroundColor="#2D3137"
         onClick={() => sortResponseTimeDesc()}
-      >⬇︎</Button>
+      >Response Time ⬇︎</Button>
     </div>
     </Flex>
   );

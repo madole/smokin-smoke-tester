@@ -59,8 +59,10 @@ export default class Results extends Component {
       <Container mt={3}>
         <BackButton mb={2} onClick={() => this.clearItems()} />
         {this.renderMainResult(mainResult, allItems)}
-        <FilterButtons filteredItemsLength={filteredItems.length} styles={styles} {...this.props} />
-        <SortButtons styles={styles} {...this.props} />
+        <Flex justify="space-between">
+          <FilterButtons filteredItemsLength={filteredItems.length} styles={styles} {...this.props} />
+          <SortButtons styles={styles} {...this.props} />
+        </Flex>
         <ul className={styles.resultList}>
           {filteredItems.map((result, i) => <Result key={i} {...result} />)}
         </ul>

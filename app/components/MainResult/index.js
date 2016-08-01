@@ -10,7 +10,9 @@ export default class MainResult extends Component {
     depthLimit: PropTypes.number.isRequired,
     hits: PropTypes.number,
     responseTime: PropTypes.number,
-    statusCode: PropTypes.number
+    statusCode: PropTypes.number,
+    satisfaction: PropTypes.number,
+    average: PropTypes.number
   }
 
   renderStatusCode() {
