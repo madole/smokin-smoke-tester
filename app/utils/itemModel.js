@@ -1,6 +1,8 @@
 import normalize from './normalizeContentType';
 import statusGenerator from './statusGenerator';
 
+
+/* TEST FIXTURE DATA */
 const statusCodes = [
   100,
   200, 200, 200, 200, 200, 200, 200, 200, 200,
@@ -41,7 +43,7 @@ const statusCodes = [
 ];
 
 export default (dataModel) => {
-  dataModel.stateData.code = statusCodes[Math.floor(Math.random() * statusCodes.length)];
+  // dataModel.stateData.code = statusCodes[Math.floor(Math.random() * statusCodes.length)];
   return {
     url: dataModel.url,
     path: dataModel.path,

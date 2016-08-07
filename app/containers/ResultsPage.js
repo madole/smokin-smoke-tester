@@ -1,6 +1,7 @@
 import Results from '../components/Results';
 import * as crawlerActions from '../actions/crawler-actions';
 import * as filterActions from '../actions/filter-actions';
+import * as sortActions from '../actions/sort-actions';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -12,6 +13,10 @@ const {
   FAILURE
 } = filterActions;
 
+const {
+  SORT_RESPONSE_TIME_ASC,
+  SORT_RESPONSE_TIME_DESC
+} = sortActions;
 
 function getFilteredItems(items = [], filter) {
   switch (filter) {
@@ -28,20 +33,46 @@ function getFilteredItems(items = [], filter) {
   }
 }
 
+function sortItems(items = [], sortBy) {
+  switch (sortBy) {
+    case SORT_RESPONSE_TIME_ASC:
+      return items.sort((a, b) => a.responseTime - b.responseTime);
+    case SORT_RESPONSE_TIME_DESC:
+      return items.sort((a, b) => b.responseTime - a.responseTime);
+    default:
+      return items;
+  }
+}
+
+function filterAndSortItems(items = [], filter, sortBy) {
+  let newItems = Array.concat([], items);
+  if (filter) {
+    newItems = getFilteredItems(newItems, filter);
+  }
+
+  if (sortBy) {
+    newItems = sortItems(newItems, sortBy);
+  }
+
+  return newItems;
+}
+
 function mapStateToProps(state) {
-  let items = state.crawler && state.crawler.items || [];
+  const items = state.crawler && state.crawler.items || [];
   return {
     crawler: state.crawler,
-    filteredItems: getFilteredItems(items, state.filter.filter)
+    filteredItems: filterAndSortItems(items, state.filter.filter, state.sort.sortBy)
   };
 }
 
 function mapActionCreatorsToProps(dispatch) {
   const crawlerActionCreators = bindActionCreators(crawlerActions, dispatch);
   const filterActionCreators = bindActionCreators(filterActions, dispatch);
+  const sortActionCreators = bindActionCreators(sortActions, dispatch);
   return {
     ...crawlerActionCreators,
-    ...filterActionCreators
+    ...filterActionCreators,
+    ...sortActionCreators
   };
   // return bindActionCreators(crawlerActions, dispatch);
 }
