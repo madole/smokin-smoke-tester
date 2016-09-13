@@ -1,0 +1,6 @@
+{
+  "name": "Smokin-smoke-tester",
+  "tagline": "A smoke tester for testing that all links within your site are live + extra stats",
+  "body": "# Smokin Smoke Tester\r\n\r\nTechnologies:\r\n\r\n- [Electron](http://electron.atom.io/)\r\n- [React](https://facebook.github.io/react/)\r\n- [Redux](https://github.com/reactjs/redux)\r\n- [React Router](https://github.com/reactjs/react-router)\r\n- [Webpack](http://webpack.github.io/docs/)\r\n- [React Transform HMR](https://github.com/gaearon/react-transform-hmr)\r\n\r\n## Screenshots\r\n\r\n![](http://imgur.com/tnEdfgo.jpg)\r\n\r\n![](http://imgur.com/h1TjIuZ.jpg)\r\n\r\n![](http://i.imgur.com/iz7uYYV.jpg)\r\n\r\n## Install\r\n\r\nFirst, clone the repo via git:\r\n\r\n```bash\r\ngit clone https://github.com/madole/smokin-smoke-tester.git\r\n```\r\n\r\nAnd then install dependencies.\r\n\r\n```bash\r\n$ cd smokin-smoke-tester && npm install\r\n```\r\n\r\n\r\n## Run\r\n\r\nRun this two commands __simultaneously__ in different console tabs.\r\n\r\n```bash\r\n$ npm run hot-server\r\n$ npm run start-hot\r\n```\r\n\r\nor run two servers with one command\r\n\r\n```bash\r\n$ npm run dev\r\n```\r\n\r\n*Note: requires a node version >= 5 and an npm version >= 2.*",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
