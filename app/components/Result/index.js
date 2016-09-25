@@ -36,7 +36,7 @@ export default class Result extends Component {
           <Box col={1} className={styles[status]} />
           <Box col={11} className={styles.details}>
             <Text bold style={{ display: 'inline' }}>
-              <a href={url} target="_blank">{path}</a>
+              <a href={url} target="_blank">{url}</a>
               <div className={styles.statusCode}>
                 <span>{statusCode}</span>
               </div>
